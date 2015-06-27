@@ -182,3 +182,12 @@ input[type=checkbox]:checked + label:before {
   margin: 0px auto 21px; }
 
 /* main content section in interior pages */
+.main {
+  padding: 0px 1%; }
+
+.result {
+  float: left;
+  width: 31.33%;
+  margin: 0px 1% 1.5%; }
+  .result img {
+    width: 100%; }

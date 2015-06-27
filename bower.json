@@ -1,0 +1,15 @@
+{
+  "name": "instagram-searcher",
+  "version": "0.0.0",
+  "authors": [
+    "Stu <stuart@blueprintinteractive.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -7,10 +7,9 @@
 
 /* typography */
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: helvetica, sans-serif;
 	font-size: 20px;
 	-webkit-font-smoothing: antialiased;
-	background: purple;
 
 	@media screen and (max-width: 400px) {
 		font-size: 16px;
@@ -26,71 +25,6 @@ h1, h2, h3, h4, h5 ,h6 {
 	margin-bottom: 21px;
 }
 
-h1, h2, h3, h4, h5 {
-	font-family: 'Yanone Kaffeesatz', sans-serif;
-}
-
-h1 {
-	font-size: 48px;
-	text-transform: uppercase;
-	color: green;
-}
-
-h2 {
-	font-size: 30px;
-	color: #0e76bc;
-}
-
-h3 {
-	font-size: 25px;
-}
-
-h4 {
-	font-size: 20px;
-}
-
-p, ul, ol, blockquote {
-	line-height: 1.5;
-}
-
-ul, ol, blockquote {
-	margin-left: 30px;
-}
-
-.col-left ul {
-	list-style: none;
-
-	li {
-		position: relative;
-
-		&:before {
-			content:'\25cf';
-			display: block;
-			position: absolute;
-			left: -15px;
-			color: #0e76bc;
-		}
-	}
-}
-
-.col-left ol {
-	counter-reset: standard;
-	list-style: none;
-
-	li {
-		counter-increment: standard;
-		position: relative;
-
-		&:before {
-			content: counter(standard)".";
-			display: block;
-			position: absolute;
-			left: -15px;
-			color: #0e76bc;
-		}	
-	}
-}
-
 a {
 	text-decoration: none;
 	color: #0e76bc;
@@ -98,14 +32,4 @@ a {
 	&:hover {
 		text-decoration: underline;
 	}
-}
-
-figcaption {
-	font-size: 13px;
-	font-style: italic;
-	color: #999;
-}
-
-figure {
-	margin: 0px 0px 21px;
 }

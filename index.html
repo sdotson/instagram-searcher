@@ -7,34 +7,20 @@
 		<title>Instagram Searcher</title>
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="js/respond.js"></script>
-		<script>
-	    // Picture element HTML5 shiv
-	    document.createElement( "picture" );
-	    </script>
+		<script src="assets/js/respond.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 	</head>
-	<body>
-		<h1>whoa</h1>
-		<nav>
-			<ul>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-			</ul>
-		</nav>
-		<header>
-
+	<body ng-app="app">
+		<header class="header">
+			<img src="assets/images/ng-instagram.png" class="logo">
+			<input type="text" name="search" placeholder="Enter a tag to search"><input type="submit" value="submit">
 		</header>
-		
-		<footer>
-		
-		</footer>
-		<script type="text/javascript" src="app/app.js"></script>
+		<main class="main">
+
+		</main>		
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 		<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
 	</body>
 </html>

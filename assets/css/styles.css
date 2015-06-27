@@ -80,13 +80,13 @@ a {
 
 /* components */
 input[type=email], input[type=text], input[type=tel], input[type=password] {
-  font-size: 14px;
+  font-size: 21px;
   border: solid 1px #222;
   line-height: 1;
-  padding: 17px 19px; }
+  padding: 8px 22px; }
 
 input[type=submit] {
-  font-size: 29px;
+  font-size: 21px;
   font-weight: bold;
   background-color: #bb1014;
   -moz-appearance: none;
@@ -96,8 +96,7 @@ input[type=submit] {
   display: inline-block;
   color: #fff;
   text-transform: uppercase;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  padding: 9px 0px;
+  padding: 9px 22px;
   cursor: pointer; }
   input[type=submit]:hover {
     background-color: #d72c30;
@@ -172,4 +171,14 @@ input[type=checkbox]:checked + label:before {
       padding: 0px 20px; } }
 
 /* Header */
+.header {
+  text-align: center;
+  padding: 50px 0px; }
+  .header input[type=text] {
+    margin-right: 20px; }
+
+.logo {
+  display: block;
+  margin: 0px auto 21px; }
+
 /* main content section in interior pages */

@@ -12,9 +12,10 @@
 			$scope.puppies = "whoa";
 
 			$scope.submit = function() {
+				$scope.photos = '';
 				$scope.loading = true;
 				$http({
-					url: 'https://api.instagram.com/v1/tags/' + $scope.data.tag + '/media/recent',
+					url: 'https://api.instagram.com/v1/tags/' + encodeURI($scope.data.tag) + '/media/recent',
 					method: 'jsonp',
 					params: {
 						callback: 'JSON_CALLBACK',
@@ -26,12 +27,14 @@
 			};
 
 			function searchSuccess(response) {
+				$scope.error = false;
 				$scope.photos = response.data;
 				$scope.loading = false;
-				console.log(response.data);
 			}
 
 			function searchError(response) {
+				$scope.loading = false;
+				$scope.error = true;
 				console.log(response);
 			}
 

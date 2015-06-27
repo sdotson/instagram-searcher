@@ -21,6 +21,9 @@
 			<div ng-if="loading">
 				Searching instagram for photos tagged with "{{data.tag}}"
 			</div>
+			<div ng-if="error">
+				Instagram Searcher could not complete this request.
+			</div>
 		</header>
 		<main class="main">
 			<div ng-repeat="photo in photos" class="result">

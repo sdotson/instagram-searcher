@@ -18,6 +18,9 @@
 				<input type="text" name="tag" ng-model="data.tag" placeholder="Enter a tag to search">
 				<input type="submit" value="submit">
 			</form>
+			<div ng-if="loading">
+				Searching instagram for photos tagged with "{{data.tag}}"
+			</div>
 		</header>
 		<main class="main">
 			<div ng-repeat="photo in photos" class="result">

@@ -12,6 +12,7 @@
 			$scope.puppies = "whoa";
 
 			$scope.submit = function() {
+				$scope.loading = true;
 				$http({
 					url: 'https://api.instagram.com/v1/tags/' + $scope.data.tag + '/media/recent',
 					method: 'jsonp',
@@ -26,6 +27,7 @@
 
 			function searchSuccess(response) {
 				$scope.photos = response.data;
+				$scope.loading = false;
 				console.log(response.data);
 			}
 

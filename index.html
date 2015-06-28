@@ -14,20 +14,25 @@
 	<body ng-app="app" ng-controller="SearchController">
 		<header class="header">
 			<img src="assets/images/ng-instagram.png" class="logo">
-			<form name="searchForm" ng-submit="submit()">
-				<input type="text" name="tag" ng-model="data.tag" placeholder="Enter a tag to search">
+			<form name="searchForm" ng-submit="searchForm.$valid && submit()" novalidate>
+				<input type="text" name="tag" ng-model="data.tag" placeholder="Enter a tag to search" required>
 				<input type="submit" value="submit">
 			</form>
 			<div ng-if="loading">
-				Searching instagram for photos tagged with "{{data.tag}}"
+				Searching instagram for photos tagged with "{{lastTerm}}"
 			</div>
 			<div ng-if="error">
 				Instagram Searcher could not complete this request.
 			</div>
+			<div ng-if="photos.length">
+				We found {{photos.length}} results for "{{lastTerm}}"
+			</div>
 		</header>
 		<main class="main">
 			<div ng-repeat="photo in photos" class="result">
-				<img ng-src="{{photo.images.low_resolution.url}}" class="">
+				<a ng-href="{{photo.link}}" target="_blank">
+					<img ng-src="{{photo.images.low_resolution.url}}" class="">
+				</a>
 			</div>
 		</main>		
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>

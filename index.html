@@ -11,8 +11,8 @@
 		<![endif]-->
 		<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 	</head>
-	<body ng-app="app" ng-controller="SearchController" ng-cloak ng-class="{'loading':loading}">
-		<header class="header">
+	<body ng-app="app" ng-controller="SearchController" ng-class="{'loading':loading}">
+		<header class="header" ng-cloak>
 			<img src="assets/images/ng-instagram.png" class="logo">
 			<form name="searchForm" ng-submit="searchForm.$valid && submit()" novalidate>
 				<input type="text" name="tag" ng-model="data.tag" placeholder="Enter a tag to search" required>
@@ -37,7 +37,7 @@
 				There were no photos found for "{{lastTerm}}"
 			</div>
 		</header>
-		<main class="main">
+		<main class="main" ng-cloak>
 			<div ng-repeat="photo in photos" class="result">
 				<a ng-href="{{photo.link}}" target="_blank">
 					<img ng-src="{{photo.images.low_resolution.url}}" class="">

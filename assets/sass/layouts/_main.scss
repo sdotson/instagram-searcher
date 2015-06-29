@@ -1,13 +1,52 @@
 /* main content section in interior pages */
 .main {
-	padding: 0px 1%;
+	padding: 0px 1% 50px;
+
+	@media screen and (max-width: 480px) {
+		padding: 0px 20px 50px;
+	}
 }
+
 .result {
 	float: left;
 	width: 31.33%;
 	margin: 0px 1% 1.5%;
 
+	@media screen and (max-width: 480px) {
+		float: none;
+		width: 100%;
+		margin: 0px 0px 21px;
+	}
+
+	&.ng-enter,
+	&.ng-leave {
+	  -webkit-transition: 500ms ease-out all;
+	  -moz-transition: 500ms ease-out all;
+	  -ms-transition: 500ms ease-out all;
+	  -o-transition: 500ms ease-out all;
+	  transition: 500ms ease-out all;
+	}
+
+	&.ng-leave.ng-leave-active,
+	&.ng-enter {
+	  opacity: 0;
+	}
+	&.ng-enter.ng-enter-active,
+	&.ng-leave {
+	  opacity: 1;
+	}
+
+	&.ng-enter-stagger {
+		-webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
+	}
+
 	img {
 		width: 100%;
 	}
+}
+
+.full-width {
+	width: 100%;
+	clear: both;
 }

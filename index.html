@@ -11,21 +11,30 @@
 		<![endif]-->
 		<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 	</head>
-	<body ng-app="app" ng-controller="SearchController">
+	<body ng-app="app" ng-controller="SearchController" ng-cloak ng-class="{'loading':loading}">
 		<header class="header">
 			<img src="assets/images/ng-instagram.png" class="logo">
 			<form name="searchForm" ng-submit="searchForm.$valid && submit()" novalidate>
 				<input type="text" name="tag" ng-model="data.tag" placeholder="Enter a tag to search" required>
 				<input type="submit" value="submit">
 			</form>
+			<p ng-if="searchForm.tag.$error.required && searchForm.$submitted" class="error">
+				You must enter a tag name.
+			</p>
 			<div ng-if="loading">
 				Searching instagram for photos tagged with "{{lastTerm}}"
 			</div>
 			<div ng-if="error">
 				Instagram Searcher could not complete this request.
 			</div>
-			<div ng-if="photos.length">
-				We found {{photos.length}} results for "{{lastTerm}}"
+			<div ng-if="photos.length >= 20">
+				We found at least {{photos.length}} results for "{{lastTerm}}"
+			</div>
+			<div ng-if="photos.length < 20 && photos.length > 0">
+				We found at {{photos.length}} results for "{{lastTerm}}"
+			</div>
+			<div ng-if="photos.length === 0 && loading === false">
+				There were no photos found for "{{lastTerm}}"
 			</div>
 		</header>
 		<main class="main">
@@ -33,6 +42,9 @@
 				<a ng-href="{{photo.link}}" target="_blank">
 					<img ng-src="{{photo.images.low_resolution.url}}" class="">
 				</a>
+			</div>
+			<div ng-show="pagination" class="full-width">
+				<a href="#" ng-click="nextPage()">See 20 more results</a>
 			</div>
 		</main>		
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>

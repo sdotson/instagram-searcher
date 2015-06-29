@@ -22,18 +22,32 @@
 				.error(searchError);
 			};
 
+			$scope.nextPage = function() {
+				$http({
+					url: $scope.pagination,
+					method: 'jsonp',
+					params: {
+						callback: 'JSON_CALLBACK',
+						client_id: '94f991d47b36477986f220d397b9a12b'
+					}
+				})
+				.success(searchSuccess)
+				.error(searchError);
+			}
+
 			function searchSuccess(response) {
 				console.log(response);
 				$scope.error = false;
-				$scope.photos = response.data;
 				$scope.loading = false;
 				$scope.data.tag = '';
+				$scope.photos = response.data;
+				$scope.pagination = response.pagination.next_url || false;
+				$scope.searchForm.$setPristine();
 			}
 
 			function searchError(response) {
 				$scope.loading = false;
 				$scope.error = true;
-				console.log(response);
 			}
 
 		}

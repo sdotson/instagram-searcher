@@ -3,6 +3,20 @@ input[type=email], input[type=text], input[type=tel], input[type=password] {
 	border: solid 1px #222;
 	line-height: 1;
 	padding: 8px 22px;
+	-webkit-transition: all 250ms ease-out;
+	transition: all 250ms ease-out;
+
+	@media screen and (max-width: 480px) {
+		width: 100%;
+		margin-bottom: 21px;
+	}	
+
+	&:focus {
+		outline: none;
+		-webkit-box-shadow: inset 10px 0px 0px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: inset 10px 0px 0px 0px rgba(0,0,0,0.75);
+		box-shadow: inset 10px 0px 0px 0px rgba(0,0,0,0.75);
+	}
 }
 
 input[type=submit] {
@@ -19,9 +33,14 @@ input[type=submit] {
 	padding: 9px 22px;
 	cursor: pointer;
 
-	&:hover {
+	@media screen and (max-width: 480px) {
+		width: 100%;
+	}
+
+	&:hover, &:focus {
 		background-color: #d72c30;
 		text-decoration: none;
+		outline: none;
 	}
 }
 
@@ -29,72 +48,15 @@ input[type=submit] {
 	margin-bottom: 10px;
 }
 
-
-/* custom checkbox */
-.form-type-checkbox {
-
-	label {
-		display: inline-block;
-		font-weight: normal;
-		position: relative;
-		margin-bottom: 23px;
-		margin-left: 35px;
-		text-align: left;
-
-		&:before {
-			content: '';
-			background: url(../images/checkbox.png) top left;
-			width: 27px;
-			height: 29px;
-			display: block;
-			cursor: pointer;
-			position: absolute;
-			left: -35px;
-			top: -5px;
-		}
-	}
-
-	input[type=checkbox] {
-		display: none;
+/* validation */
+.ng-submitted {
+	.ng-invalid {
+		background-color: #ffd0cc;
+		color: #e74c3c;
 	}
 }
 
-input[type=checkbox]:checked+label:before {
-	background-position: top right;
-}
-
-/* custom select */
-.select-wrapper {
-	display: inline-block;
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	background-color: #fff;
-
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		background: url(../images/select-arrow.png) no-repeat center;
-		width: 42px;
-		height: 42px;
-		z-index: 2;
-	}
-
-	select {
-		cursor: pointer;
-		font-size: 14px;
-		border: none;
-		background-color: transparent;
-		width: 115%;
-		position: relative;
-		z-index: 10;
-		-webkit-appearance: none;
-
-		&:focus {
-			outline: none;
-		}
-	}
+.error {
+	color: #e74c3c;
+	font-weight: bold;
 }

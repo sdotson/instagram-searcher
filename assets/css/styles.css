@@ -60,7 +60,10 @@ img {
 body {
   font-family: helvetica, sans-serif;
   font-size: 20px;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
   @media screen and (max-width: 400px) {
     body {
       font-size: 16px; } }
@@ -83,7 +86,18 @@ input[type=email], input[type=text], input[type=tel], input[type=password] {
   font-size: 21px;
   border: solid 1px #222;
   line-height: 1;
-  padding: 8px 22px; }
+  padding: 8px 22px;
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out; }
+  @media screen and (max-width: 480px) {
+    input[type=email], input[type=text], input[type=tel], input[type=password] {
+      width: 100%;
+      margin-bottom: 21px; } }
+  input[type=email]:focus, input[type=text]:focus, input[type=tel]:focus, input[type=password]:focus {
+    outline: none;
+    -webkit-box-shadow: inset 10px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 10px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 10px 0px 0px 0px rgba(0, 0, 0, 0.75); }
 
 input[type=submit] {
   font-size: 21px;
@@ -98,66 +112,25 @@ input[type=submit] {
   text-transform: uppercase;
   padding: 9px 22px;
   cursor: pointer; }
-  input[type=submit]:hover {
+  @media screen and (max-width: 480px) {
+    input[type=submit] {
+      width: 100%; } }
+  input[type=submit]:hover, input[type=submit]:focus {
     background-color: #d72c30;
-    text-decoration: none; }
+    text-decoration: none;
+    outline: none; }
 
 .form-item {
   margin-bottom: 10px; }
 
-/* custom checkbox */
-.form-type-checkbox label {
-  display: inline-block;
-  font-weight: normal;
-  position: relative;
-  margin-bottom: 23px;
-  margin-left: 35px;
-  text-align: left; }
-  .form-type-checkbox label:before {
-    content: '';
-    background: url(../images/checkbox.png) top left;
-    width: 27px;
-    height: 29px;
-    display: block;
-    cursor: pointer;
-    position: absolute;
-    left: -35px;
-    top: -5px; }
+/* validation */
+.ng-submitted .ng-invalid {
+  background-color: #ffd0cc;
+  color: #e74c3c; }
 
-.form-type-checkbox input[type=checkbox] {
-  display: none; }
-
-input[type=checkbox]:checked + label:before {
-  background-position: top right; }
-
-/* custom select */
-.select-wrapper {
-  display: inline-block;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  background-color: #fff; }
-  .select-wrapper:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: url(../images/select-arrow.png) no-repeat center;
-    width: 42px;
-    height: 42px;
-    z-index: 2; }
-  .select-wrapper select {
-    cursor: pointer;
-    font-size: 14px;
-    border: none;
-    background-color: transparent;
-    width: 115%;
-    position: relative;
-    z-index: 10;
-    -webkit-appearance: none; }
-    .select-wrapper select:focus {
-      outline: none; }
+.error {
+  color: #e74c3c;
+  font-weight: bold; }
 
 /* buttons */
 /* page structure */
@@ -174,8 +147,14 @@ input[type=checkbox]:checked + label:before {
 .header {
   text-align: center;
   padding: 30px 0px 30px; }
+  @media screen and (max-width: 480px) {
+    .header {
+      padding: 30px 20px; } }
   .header input[type=text] {
     margin-right: 20px; }
+    @media screen and (max-width: 480px) {
+      .header input[type=text] {
+        margin-right: none; } }
   .header form {
     margin-bottom: 21px; }
 
@@ -185,11 +164,39 @@ input[type=checkbox]:checked + label:before {
 
 /* main content section in interior pages */
 .main {
-  padding: 0px 1%; }
+  padding: 0px 1% 50px; }
+  @media screen and (max-width: 480px) {
+    .main {
+      padding: 0px 20px 50px; } }
 
 .result {
   float: left;
   width: 31.33%;
   margin: 0px 1% 1.5%; }
+  @media screen and (max-width: 480px) {
+    .result {
+      float: none;
+      width: 100%;
+      margin: 0px 0px 21px; } }
+  .result.ng-enter,
+  .result.ng-leave {
+    -webkit-transition: 500ms ease-out all;
+    -moz-transition: 500ms ease-out all;
+    -ms-transition: 500ms ease-out all;
+    -o-transition: 500ms ease-out all;
+    transition: 500ms ease-out all; }
+  .result.ng-leave.ng-leave-active,
+  .result.ng-enter {
+    opacity: 0; }
+  .result.ng-enter.ng-enter-active,
+  .result.ng-leave {
+    opacity: 1; }
+  .result.ng-enter-stagger {
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s; }
   .result img {
     width: 100%; }
+
+.full-width {
+  width: 100%;
+  clear: both; }

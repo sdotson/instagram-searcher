@@ -4,6 +4,8 @@
 
 		.controller('SearchController', SearchController);
 
+		SearchController.$inject['$scope','$http'];
+
 		function SearchController($scope, $http) {
 
 			$scope.submit = function() {
@@ -36,7 +38,6 @@
 			}
 
 			function searchSuccess(response) {
-				console.log(response);
 				$scope.error = false;
 				$scope.loading = false;
 				$scope.data.tag = '';
@@ -51,6 +52,5 @@
 			}
 
 		}
-
 
 })();

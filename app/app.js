@@ -4,7 +4,7 @@
 
 		.controller('SearchController', SearchController);
 
-		SearchController.$inject['$scope','$http'];
+		SearchController.$inject = ['$scope','$http'];
 
 		function SearchController($scope, $http) {
 
